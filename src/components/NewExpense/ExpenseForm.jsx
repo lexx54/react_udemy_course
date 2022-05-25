@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './ExpenseForm.css'
 
-const ExpenseForm = ({ onSaveExpenseData }) => {
-  const [enteredTitle, setEnteredTitle] = ('')
-  const [enteredAmount, setEnteredAmount] = ('')
-  const [enteredDate, setEnteredDate] = ('')
+const ExpenseForm = ({ onSaveExpenseData, onCancelAdd }) => {
+  const [enteredTitle, setEnteredTitle] = useState('')
+  const [enteredAmount, setEnteredAmount] = useState('')
+  const [enteredDate, setEnteredDate] = useState('')
 
   const titleChangeHandler = ({ target }) => setEnteredTitle(target.value)
   const amountChangeHandler = ({ target }) => setEnteredAmount(target.value)
@@ -63,6 +63,7 @@ const ExpenseForm = ({ onSaveExpenseData }) => {
         </div>
       </div>
       <div className="new-expense__actions">
+        <button onClick={onCancelAdd}>Cancel</button>
         <button type='submit'>Add expense</button>
       </div>
     </form>
